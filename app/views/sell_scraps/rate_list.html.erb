@@ -1,0 +1,5 @@
+<div class="container">
+    <h1 class="mt-4 text-center">Today's scrap price list</h1> 
+    <p class="text-center mt-3 mb-0">Price may fluctuate because of the recycling industry.</p>
+    <%= render partial: "item",collection: @items,as: :items,locals:{disabled:"disabled"} %>
+</div>

@@ -1,0 +1,29 @@
+<div class="d-flex justify-content-center">
+  <div class="card  mt-5 mb-5 " style="width: 25rem;">
+    <div class="card-header bg-primary" >
+      <h2>Log in</h2>
+    </div>
+    <div class="card-body">
+      <%= form_with url:users_sign_in_path do |f| %>
+    
+        <div class="field mb-3">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", required: true %>
+        </div>
+
+        <div class="field mb-3">
+          <%= f.label :password %><br />
+          <%= f.password_field :password, autocomplete: "current-password", class:"form-control" , required: true%>
+        </div>
+
+        <div class="actions text-center">
+          <%= f.submit "Log in",class:"btn btn-primary" %>
+        </div>
+      <% end %>
+
+      <%= link_to "👉Sign up", users_sign_up_path %><br />
+      <%= link_to "👉Forgot your password?", new_users_password_path %><br />
+
+    </div>
+  </div>
+</div>

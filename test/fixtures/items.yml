@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  scrap: one
+  price: 1
+  unit: one
+
+two:
+  name: MyString
+  scrap: two
+  price: 1
+  unit: two

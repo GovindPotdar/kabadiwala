@@ -1,0 +1,18 @@
+<br>
+<p style="font-size:20px;font-weight:700" class=" mb-2"><%= items.name %></p>
+<div style="display: flex;align-items: center;overflow-y: hidden;overflow-x: auto">
+	
+	<% items.items.each do |item| %>
+		<div style="margin-right:10px">		
+			<label class="d-flex justify-content-around" >
+				<input type="checkbox" name="item_ids[]" value="<%= item.id %>" class="label-input-checkbox" <%= disabled %> >
+					<span class="label-span-item-class" title="<%= item.name %>">
+						<%= item.name %> <span style="background-color: #ffc107; border-radius: 5px"><%=item.price %>/<%= item.unit.name %></span>
+					</span>
+			</label>
+		</div>
+	<% end %>
+</div>
+
+
+

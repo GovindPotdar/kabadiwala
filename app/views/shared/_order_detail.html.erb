@@ -1,0 +1,42 @@
+<div class="container mt-5 mb-5 border border-primary rounded p-4">
+  <h1 class="text-center mt-3 mb-3">Details</h1> 
+  <h6 class="text-center mb-3" >status  : <%=show_status(object)%> </h6>
+  <br>
+  <h4>User details : </h4><br>
+  <p>Name : <%= object.user.full_name %></p>
+  <p>Mobile Number : <%= object.user.mobile_number %></p>
+  <p>Email : <%= object.user.email %></p>
+
+  
+  <hr>
+  <h4>Pickup Address : </h4><br>
+  <p><%= object.pickup_address.address%> , <%= object.pickup_address.city.name%></p>
+  
+  <hr>
+  <h4>Items : </h4>
+  <p>Note : Price may fluctuate because of the recycling industry.</p><br>
+  <% if !object.items.blank? %>
+  <div class="d-flex overflow-auto">
+    <% object.items.order(:name).each do |item| %>
+    <span class="label-span-item-class m-1" title="<%= item.name %>">
+      <%= item.name %> <span style="background-color: #ffc107; border-radius: 5px"><%=item.price %>/<%= item.unit.name %></span>
+    </span>
+    <% end %>
+  </div>
+  <% else %>
+    <p>No item selected.</p>
+  <% end %>
+
+  <hr>
+  <h4>Uploaded images : </h4><br>
+
+  <% if object.images.attached? %>
+    <% object.images.each do |image| %>
+     
+        <%= image_tag image,width:"150px",class:"p-2" %>
+   
+    <% end %>
+  <% else %>
+    <p>No image attached.</p>
+  <% end %>
+</div>

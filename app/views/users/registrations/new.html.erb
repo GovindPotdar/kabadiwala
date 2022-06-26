@@ -1,0 +1,12 @@
+<div class="d-flex justify-content-center">
+  <div class="card  mt-5 mb-5 " style="width: 25rem;">
+    <div class="card-header bg-primary" >
+      <h2>Sign up</h2>
+    </div>
+    <div class="card-body">
+      
+      <%= render "form", user:@user,action_path:users_sign_up_path,submit_button_text:"Sign up" %>
+      <%= link_to "👉Log in", users_sign_in_path %><br />
+    </div>
+  </div>
+</div>

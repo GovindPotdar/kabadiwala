@@ -1,0 +1,52 @@
+<div class="margin:50px">
+  <center><h1>Invoice :: kabadiwala</h1></center>
+  <center><h6>Status  : Done </h6></center>
+  <center><h6>date  : <%=Date.today.strftime("%d-%m-%Y")%> </h6></center>
+  <center><h6>Order ID  : <%=object.id%> </h6></center>
+
+  <br>
+  
+  <h4>User details : </h4>
+  <p>Name : <%= object.user.full_name %></p>
+  <p>Mobile Number : <%= object.user.mobile_number %></p>
+  <p>Email : <%= object.user.email %></p>
+
+  
+  <hr>
+  <h4>Pickup Address : </h4>
+  <p><%= object.pickup_address.address%> , <%= object.pickup_address.city.name%></p>
+  
+  <hr>
+  <h4>Total Amount : </h4>
+  <p>Note : Price may not be calculated in respect to items. (Items may be added or removed on the pickup location by the owner but will not added or removed from the invoice and only items that are selected while placing scrap sell request is shown below).</p>
+  <p>Amount : <span style="background-color: #ffc107; border-radius: 5px" ><%=total_amount%> Rs.</span></p>
+
+  <hr>
+  <h4>Items : </h4>
+  <%# <p>Note : .</p> %>
+  <% if !object.items.blank? %>
+ 
+    <% object.items.order(:name).each do |item| %>
+    <span>
+      <%= item.name %> <span style="background-color: #ffc107; border-radius: 5px"><%=item.price %>/<%= item.unit.name %></span>
+    </span>
+    <br>
+    <% end %>
+  
+  <% else %>
+    <p>No item selected.</p>
+  <% end %>
+
+  <hr>
+  <h4>Uploaded images : </h4>
+
+  <% if object.images.attached? %>
+    <% object.images.each do |image| %>
+     
+        <%= image_tag image,width:"150px",style:"padding:10px" %>
+   
+    <% end %>
+  <% else %>
+    <p>No image attached.</p>
+  <% end %>
+</div>

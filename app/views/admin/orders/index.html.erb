@@ -1,0 +1,53 @@
+<div class="container mt-5">
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <%= link_to "Requested",admin_orders_path(filter:"requested"),"class"=>"nav-link","aria-current"=>"page"%>
+    </li>
+    <li class="nav-item">
+      <%= link_to "Canceled",admin_orders_path(filter:"canceled"),"class"=>"nav-link"%>
+    </li>
+    <li class="nav-item">
+      <%= link_to "Done",admin_orders_path(filter:"done"),"class"=>"nav-link"%>
+    </li>
+    <li class="nav-item">
+      <%= link_to "Rejected",admin_orders_path(filter:"rejected"),"class"=>"nav-link"%>
+    </li>
+  </ul>
+</div>
+
+<div class="container mt-3 mb-2">
+  <%= form_with url:admin_orders_path,method: :get do |f| %>
+    <%= f.number_field :order_id ,placeholder:"Order id",min:1%>
+    <%= f.submit "search"%>
+  <% end %>
+</div>
+<%# table starts form here  %>
+<div class="table-responsive container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Order ID</th>
+        <th scope="col">Date</th>
+        <th scope="col">Status</th>
+        <th scope="col">Options</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @orders.each do |order| %>
+        <tr>
+          <th scope="row"><%=order.id%></th>
+          <td><%=order.created_at.to_date%></td>
+          <td><%=show_status order %></td>
+          <% if order.status != 'done'%>
+            <td><%=link_to "show",admin_order_path(order),class:"btn btn-primary"%></td>
+          <% else %>
+            <td>
+              <%=link_to "invoice",rails_blob_path(order.invoice, disposition: :inline),target:"_blank"%>
+            </td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+

@@ -1,0 +1,48 @@
+<nav class="navbar-expand-lg navbar navbar-dark bg-primary p-3 fixed">
+  <div class="container-fluid">
+    <strong>
+    <%#=image_tag "kabadiwala",alt:"kabadiwala-logo",width:"30",height:"30",class:"d-inline-block align-text-top"%>
+      <%= link_to "Kabadiwala",root_path,class:"navbar-brand",data: { turbolinks: false }%>
+    </strong>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <%= link_to "Sell scrap" ,sell_scraps_path, "class"=>"nav-link active"  %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Rate list" ,rate_list_path, "class"=>"nav-link active"  %>
+        </li>
+        <% if user_signed_in? %>
+          <li class="nav-item ">
+            <%= link_to "Profile" ,users_profile_index_path, "class"=>"nav-link active"  %>
+          </li>
+          <li class="nav-item ">
+            <%= link_to "My sell requests" ,users_pickup_requests_path, "class"=>"nav-link active"  %>
+          </li>
+
+          <% if is_admin? %>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Admin
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><%= link_to "Orders",admin_orders_path,class:"dropdown-item" %></li>
+              </ul>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+      <div class="text-end">
+          <% if !user_signed_in? %>
+            <%= link_to "Sign-in",users_sign_in_path,class:"btn btn-outline-light me-2" %>
+            <%= link_to "Sign-up",users_sign_up_path,class:"btn btn-warning" %>
+          <% else %>
+            <%= link_to "Sign-out",users_sign_out_path,class:"btn btn-info",data:{turbo_method: :delete} %>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</nav>

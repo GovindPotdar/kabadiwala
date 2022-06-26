@@ -1,0 +1,93 @@
+<section style="background-color: #eee;">
+  <div class="container py-5">
+    
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card mb-4">
+          <div class="card-body text-center">
+            <% if @user.avatar.attached? %>
+           
+              <%= image_tag @user.avatar,alt:"profile image",class:"rounded-circle img-fluid", style:"width: 150px;"%>
+            <% else %>
+              <%= image_tag "no-user-profile.jpg",alt:"profile image",class:"rounded-circle img-fluid" ,style:"width: 150px;"%>
+            <% end %>
+
+            <h5 class="my-3"><%=@user.full_name.upcase %></h5>
+            <div class="d-flex justify-content-center mb-2">
+              <%= form_with model: @user ,url:change_avatar_users_profile_index_path do |form|%>
+                <%= form.file_field :avatar ,accept:"image/*",class:"btn btn-primary", onchange:"document.getElementById('change_profile').click()"%>
+              
+                <%= form.submit "",style:"display:none",id:"change_profile"%>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="card mb-4">
+          <div class="card-body">
+            <div class="card-header mb-3">My Details - <%=link_to "Edit",edit_users_profile_index_path,class:"btn btn-primary"%></div>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Full Name</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0"><%=@user.full_name%></p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Email</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0"><%=@user.email%></p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Mobile number</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0"><%=@user.mobile_number%></p>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card mb-4 mb-md-0">
+              <div class="card-body">
+                <div class="card-header">My pickup addresses - 
+                  <% unless maximum_pickup_addresses_reached? %>
+                    <%= link_to "New",new_users_pickup_address_path,class:"btn btn-primary "%>
+                  <% end %>
+                </div>
+                <br>
+                
+                <% @pickup_addresses.each_with_index do |address,index| %>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0"><%= index+1 %> ) <%= address.city.name %></p>
+                  </div>
+                  <div class="col-sm-7">
+                    <p class="text-muted mb-0"><%=address.address%></p>
+                  </div>
+                  <div class="col-sm-2">
+                    <%= link_to "edit",edit_users_pickup_address_path(address),class:"btn btn-warning"%>
+                  </div>
+                </div>
+                <hr>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+

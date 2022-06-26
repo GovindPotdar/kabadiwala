@@ -1,0 +1,20 @@
+<section class="light">
+	<div class="container py-2">
+		<div class="h1 text-center text-dark" id="pageHeaderTitle">Kabadiwala</div>
+		<article class="postcard light blue">
+			<a class="postcard__img_link" href="<%=root_path%>">
+				<%=image_tag "official",class:"postcard__img",alt:"Kabadiwala"%>
+			</a>
+			<div class="postcard__text t-dark">
+				<h1 class="postcard__title blue"><a href="<%=root_path%>">Kabadiwala</a></h1>
+				
+			
+			  	<div class="postcard__preview-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!</div>
+			</div>
+		</article>
+		<hr>	
+	</div>
+</section>
+
+
+<%= render "shared/scrap_option",scraps:  @scraps %>

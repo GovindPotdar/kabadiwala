@@ -1,0 +1,32 @@
+<div class="container mt-5 mb-5 ">
+  <h1 class="text-center mb-5">Scrap sell request history</h1>
+  <div class="overflow-auto">
+    <% if !@requests.blank? %>
+    <table class="table ">
+      <thead>
+        <tr>
+          <th>Request/Order ID</th>
+          <th>Date</th>
+          <th>Status</th>
+          <th>Options</th>
+
+        </tr>
+      </thead>
+      <tbody>
+
+        <% @requests.each do |request| %>
+          <tr style="background-color: #8db5f1!important;">
+            <td><%=link_to "##{request.id} - click here",users_pickup_request_path(request),class:"text-dark",style:"font-weight: 800;" %></td>
+            <td><%=request.created_at.to_date%></td>
+            <td><%=show_status(request)%></td>
+            <td><%=option_to_user(request)%></td>
+          </tr>
+        <% end %>
+
+      </tbody>
+    </table>
+    <% else %>
+      <h2 class="text-center">No requests yet.</h2>
+    <% end %>
+  </div>
+</div>

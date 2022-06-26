@@ -1,0 +1,15 @@
+<%= render "shared/order_detail",object:@order%>
+<% if @order.status == "requested" %>
+  <div class="container border border-primary rounded p-5">
+  <h3>If deal successful</h3>
+    <%= form_with url:admin_order_done_path(@order)  do |f| %>
+      <%= f.label :total_amount,"Total amount : "%>
+      <%= f.text_field :total_amount,class:"form-control",required:true%>
+
+      <%= f.submit "Done",class:"btn btn-primary m-2 "%>
+    <% end %>
+    <hr>
+    <h3>If deal unsuccessful</h3>
+    <%=link_to "Reject",admin_order_reject_path(@order),data:{turbo_method: :delete,turbo_confirm:"Are you sure ?"},class:"btn btn-danger"%>
+  </div>
+<% end %>

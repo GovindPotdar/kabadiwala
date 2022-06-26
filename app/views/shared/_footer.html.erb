@@ -1,0 +1,141 @@
+<!-- Remove the container if you want to extend the Footer to full width. -->
+<div class="mt-5">
+
+  <!-- Footer -->
+  <footer
+          class="text-center text-lg-start text-white"
+          style="background-color: #1c2331; "
+          >
+    <!-- Section: Social media -->
+    <section
+             class="d-flex justify-content-between p-4 bg-primary"
+        
+             >
+      <!-- Left -->
+      <div class="me-5">
+        <span>Our social media links : </span>
+      </div>
+      <!-- Left -->
+
+      <!-- Right -->
+      <div>
+        <%# <a href="" class="text-white me-4">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-google"></i>
+        </a> %>
+        <a href="https://instagram.com/_kabadi_wala?igshid=YmMyMTA2M2Y=" target="_blank" class="text-white me-4">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <%# <a href="" class="text-white me-4">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-github"></i>
+        </a> %>
+      </div>
+      <!-- Right -->
+    </section>
+    <!-- Section: Social media -->
+
+    <!-- Section: Links  -->
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <h6 class="text-uppercase fw-bold">Kabadiwala</h6>
+            <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #7c4dff; height: 2px"
+                />
+            <p>
+              The Weste management company, Working towards innovation by linking the traditinal kabadiwala system with technology.
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold">Deals in</h6>
+            <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #7c4dff; height: 2px"
+                />
+            <p>
+              <a href="javascript:void(0)" class="text-white">Paper</a>
+            </p>
+            <p>
+              <a href="javascript:void(0)" class="text-white">plastic</a>
+            </p>
+            <p>
+              <a href="javascript:void(0)" class="text-white">Metals</a>
+            </p>
+            <p>
+              <a href="javascript:void(0)" class="text-white">E-waste</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold">Useful links</h6>
+            <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #7c4dff; height: 2px"
+                />
+            <p>
+              <%=link_to "Home Page",root_path,class:"text-white"%>
+            </p>
+            <p>
+              <%=link_to "Sell Scrap",sell_scraps_path,class:"text-white"%>
+            </p>
+            <p>
+              <%=link_to "Rate List",rate_list_path,class:"text-white"%>
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold">Contact us</h6>
+            <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #7c4dff; height: 2px"
+                />
+            <p><i class="fas fa-home mr-3"></i> Dewas (455001), M.P, India</p>
+            <p><i class="fas fa-envelope mr-3"></i> govindpotdar2001@gmail.com</p>
+            <p><i class="fas fa-phone mr-3"></i> + 91 6265328168</p>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </div>
+    </section>
+    <!-- Section: Links  -->
+
+    <!-- Copyright -->
+    <div
+         class="text-center p-3"
+         style="background-color: rgba(0, 0, 0, 0.2)"
+         >
+      © <%=Date.today.year%> Copyright:
+      <a class="text-white" href="/"
+         >Kabadiwala</a
+        >
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+
+</div>
+<!-- End of .container -->

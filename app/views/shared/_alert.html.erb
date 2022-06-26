@@ -1,0 +1,13 @@
+<% if flash[:notice]%>
+    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+       <center> <strong> <%= flash[:notice] %></strong></center>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<% end %>
+
+<% if flash[:alert]%>
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <center><strong> <%= flash[:alert] %></strong></center>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<% end %>

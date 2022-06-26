@@ -1,0 +1,58 @@
+<% if !@items.blank? %>
+	<form method="POST" name="scrap-form" action="<%= sell_scraps_path %>" enctype="multipart/form-data">
+		<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+		
+		<% params[:scrap].each do |s| %>
+			<input name="scrap[]" value='<%= s %>' type="hidden">
+		<% end %>
+		<div class="container">
+		<div class="h1 text-center text-dark" id="pageHeaderTitle" >Select scrap items for pickup.</div>
+			<p class="text-center">Price may fluctuate because of the recycling industry.</p>
+
+			<div class="row">
+				<div class="col-lg-6 col-md-6 col-sm-12">
+					<label for="image" style="font-size:20px;font-weight:700" class="my-2">Upload Images (*optinal)</label><br>
+					<input type="file" name="images[]" accept="image/*" class="btn btn-primary" multiple="true">			
+				</div>
+			</div>
+				<br>
+				<% if user_signed_in? %>
+					<label for="" style="font-size:20px;font-weight:700" class="mb-2">Choice pickup location</label> (	Without pickup address we are unable to serve you.)
+					<div style="display: flex;align-items: center;overflow-y: hidden;overflow-x: auto">
+						<% if !@pickup_addresses.blank? %>
+							<% @pickup_addresses.each_with_index do |address,index| %>
+								<div style="margin-right:10px">		
+									<label class="d-flex justify-content-around" >
+										<input type="radio" name="pickup_address_id" <%=pickup_address_checked(index,address,params[:pickup_address_id])%> value="<%= address.id %>" class="label-input-checkbox"  >
+											<span class="label-span-item-class" style="width:400px" title="<%=address.address%>">
+												<%=truncate(address.address)%>, <%= address.city.name %>
+											</span>
+									</label>
+								</div>
+							<% end %>
+						<% else %>
+						
+							<div class="w-100 my-2" style="height:100px;border-radius:10px;justify-content:center; display:flex; flex-direction: column; align-items: center; background: linear-gradient(to right, #ff3300 0%, #ff99cc 100%);">
+								<%= link_to "Add pickup address",new_users_pickup_address_path ,class:"btn btn-warning "%>
+							</div>
+						<% end %>
+					</div>
+				<% end %>
+			<%= render partial: "item",collection: @items,as: :items ,locals:{disabled:""}%>
+		</div>
+			<div class="d-grid gap-1 col-sm-4 col-md-4 col-lg-3 mx-auto mt-5">
+				<% if user_signed_in? %>
+					<% if !@pickup_addresses.blank? %>
+						<input type="submit" id="submit-button" class="btn btn-lg btn-primary" value="Continue" >
+					<% else %>
+					<%= link_to "Please first add pickup address to continue.",new_users_pickup_address_path,class:"btn btn-warning btn-lg" %>
+					<% end %>
+				<% else %>
+					<%= link_to "Sign in or Sign up to continue.",users_sign_in_path,class:"btn btn-lg btn-warning" %>
+				<% end %>
+			</div>
+		</div>
+	</form>
+<% else %>
+		<div class="h1 text-center text-dark mt-5 pt-5 pb-5" id="pageHeaderTitle" >No Data Found !</div>
+<% end %>
