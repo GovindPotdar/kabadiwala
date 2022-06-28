@@ -1,29 +1,27 @@
 <form methot="GET" name="scrap-form" action="<%= new_sell_scrap_url %>">
-	<div class="container">
+	<div class="w-100 container">
 	<div class="h1 text-center text-dark" id="pageHeaderTitle" >Please Select, Whatever You Want To Sell.</div>
-		<div class="row">
+		<div class="w-100 main-container row">
 			<% scraps.each do |scrap| %>
-				<div class="col-sm-6 col-md-6 col-lg-4 mt-3 mb-3">
-					
-						<label class="d-flex justify-content-around" class="label-class" >
+				<div class="col-6 col-sm-6 col-md-6 col-lg-4 mt-3 mb-3 iteam-card">	
+						<label class="label-class"  >
 							<input type="checkbox" class="label-input-checkbox" name="scrap[]" value="<%= scrap.name %>">
 							<span class="label-span-scrap-class">
 								<i class="<%= scrap.icon_class %>"></i>
-								<%= scrap.name %>
+								<p class="items-name"><%= scrap.name %></p>
 							</span>
 						</label>
 						
-						<label class="d-flex justify-content-around" class="label-class">
+						<label class="label-class desc">
 							<%= scrap.description %>
 						</label>
 				</div>
 			<% end %>
 		</div>
 	</div>
-		<div class="d-grid gap-1 col-sm-12 col-md-6 col-lg-4 mx-auto mt-5">
+
+		<div class="raise-btn mx-auto mt-4">
 			<input type="submit" id="submit-button" class="btn btn-lg btn-primary" value="Raise pickup request" >
 		</div>
 	</div>
 </form>
-
-
