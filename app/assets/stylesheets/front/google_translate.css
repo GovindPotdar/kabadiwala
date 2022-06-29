@@ -27,4 +27,21 @@
 
 .google-translate-container{
   background: linear-gradient(to right, #669beb 0%, #f9c11a 100%);
+  position: relative;
+}
+#background {
+  position: absolute;
+  top: 0.2rem;
+  left: 1.4rem;
+  bottom: 0;
+  font-size: larger;
+  overflow: hidden;
+  color: white;
+  font-weight: 600;
+}
+
+#background a{
+  text-decoration: none;
+  color: white;
+
 }
