@@ -40,15 +40,15 @@
 				<% end %>
 			<%= render partial: "item",collection: @items,as: :items ,locals:{disabled:""}%>
 		</div>
-			<div class="d-grid gap-1 col-sm-4 col-md-4 col-lg-3 mx-auto mt-5">
+			<div class=" text-center mt-5">
 				<% if user_signed_in? %>
 					<% if !@pickup_addresses.blank? %>
 						<input type="submit" id="submit-button" class="btn btn-lg btn-primary" value="Continue" >
 					<% else %>
-					<%= link_to "Please first add pickup address to continue.",new_users_pickup_address_path,class:"btn btn-warning btn-lg" %>
+					<%= link_to "Please add pickup address to continue.",new_users_pickup_address_path,class:"btn btn-warning " %>
 					<% end %>
 				<% else %>
-					<%= link_to "Sign in or Sign up to continue.",users_sign_in_path,class:"btn btn-lg btn-warning" %>
+					<%= link_to "Sign in or Sign up to continue.",users_sign_in_path,class:"btn btn-warning" %>
 				<% end %>
 			</div>
 		</div>

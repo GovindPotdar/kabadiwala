@@ -35,8 +35,8 @@
 }
 .label-span-scrap-class {
   /* position: relative; */
-  border: 0.2rem solid #d4d4d4;
-  border-radius: 1.2rem;
+  border: 0.3rem solid #d4d4d4;
+  border-radius: 1rem;
   transition: 0.3s;
   height: 11rem;
   width: 14rem;
@@ -44,7 +44,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2rem;
+  font-size: 2.6rem;
   
 }
 
@@ -63,6 +63,7 @@ label input:checked + span {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-size: 2.2rem;
   }
   .desc{
     margin-top:0.4rem;
@@ -76,6 +77,8 @@ label input:checked + span {
     align-items: center;
     height: 8rem;
     width: 8.8rem;
+    font-size: 2.2rem;
+
   }
   .items-name{
     margin-top:1rem;
