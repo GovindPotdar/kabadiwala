@@ -1,24 +1,5 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Visit : http://kabadi-wala.herokuapp.com/
 
-Things you may want to cover:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+![kaba](https://user-images.githubusercontent.com/70855085/177532635-0f0c4c06-0466-4a06-8710-91081741e855.png)
